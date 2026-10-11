@@ -1,0 +1,7 @@
+# Desktop Client & Installers (Not needed for web)
+CMCLIENT-Windows-1.5.9-x64-Setup.exe
+cmclient-universal-installer.jar
+cmpack_1.8.8_2.8.11-beta/
+node_modules/
+.DS_Store
+Thumbs.db

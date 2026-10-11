@@ -1,0 +1,12 @@
+{
+  "name": "cmclient-minecraft-ws-proxy",
+  "version": "1.0.0",
+  "description": "High-performance WebSocket to TCP proxy bridge for browser Minecraft 1.8.8 clients",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}

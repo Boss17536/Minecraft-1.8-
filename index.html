@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CM Client 1.8.8 Web Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-logo">CM</div>
+        <div class="brand-info">
+          <h1>CM CLIENT <span class="tag">WEB 1.8.8</span></h1>
+          <p class="subtitle">zero download • high fps pvp • cracked server ready</p>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button id="btn-open-settings" class="btn-icon" title="CM Client Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+          Mods & Settings
+        </button>
+        <button id="btn-open-packs" class="btn-icon" title="Resource Packs">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          Resource Packs
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Launcher View -->
+    <main id="launcher-view" class="launcher-view">
+      <div class="hero-card">
+        <div class="avatar-preview">
+          <img id="skin-preview" src="https://mc-heads.net/avatar/Steve/100" alt="Player Skin">
+        </div>
+
+        <div id="returning-user-card" class="returning-user-card hidden">
+          <div class="welcome-badge">✓ SAVED PROFILE</div>
+          <div class="user-greeting">
+            <span>Playing as:</span>
+            <strong id="display-saved-name">Player</strong>
+          </div>
+          <button id="btn-switch-account" class="btn-switch" title="Change Username">Switch Name</button>
+        </div>
+
+        <div class="player-input-group" id="player-input-group">
+          <label for="player-username">ENTER PLAYER USERNAME</label>
+          <div class="input-wrapper">
+            <input type="text" id="player-username" maxlength="16" placeholder="Steve" value="Player">
+            <button id="btn-random-name" title="Random Name" class="btn-dice">🎲</button>
+            <button id="btn-enter-game" class="btn-enter" title="Launch CM Client">ENTER ▶</button>
+          </div>
+          <p class="input-hint">Type your name and press <strong>ENTER</strong> to launch immediately</p>
+        </div>
+
+        <!-- Quick Mod HUD Toggles -->
+        <div class="quick-toggles">
+          <div class="toggle-pill active" data-mod="keystrokes">
+            <span class="dot"></span> Keystrokes
+          </div>
+          <div class="toggle-pill active" data-mod="cps">
+            <span class="dot"></span> CPS Counter
+          </div>
+          <div class="toggle-pill active" data-mod="sprint">
+            <span class="dot"></span> ToggleSprint
+          </div>
+          <div class="toggle-pill active" data-mod="armor">
+            <span class="dot"></span> ArmorHUD
+          </div>
+          <div class="toggle-pill active" data-mod="fps">
+            <span class="dot"></span> FPS Boost
+          </div>
+        </div>
+
+        <!-- Play Options -->
+        <div class="play-actions">
+          <button id="btn-launch-sp" class="btn-primary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            PLAY SINGLEPLAYER (OFFLINE)
+          </button>
+          <button id="btn-launch-mp" class="btn-secondary">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            JOIN ONLINE SERVERS (CRACKED)
+          </button>
+        </div>
+      </div>
+
+      <!-- Server Quick Select Drawer -->
+      <section class="servers-section">
+        <div class="section-title">
+          <h3>POPULAR CRACKED SERVERS (WEBSOCKET ENABLED)</h3>
+          <span class="badge">1.8.8 Compatible</span>
+        </div>
+        <div class="server-cards" id="server-list">
+          <!-- Dynamically populated or static pre-set servers -->
+          <div class="server-card" data-ws="wss://mc.mineberry.org/" data-direct="mc.mineberry.org">
+            <div class="server-icon">🫐</div>
+            <div class="server-details">
+              <h4>MineBerry Network</h4>
+              <p>mc.mineberry.org • Bedwars • Survival • Skywars • OpPrison</p>
+            </div>
+            <div class="server-ping"><span class="ping-green">●</span> Online</div>
+            <button class="btn-connect" data-ip="mc.mineberry.org">CONNECT</button>
+          </div>
+
+          <div class="server-card" data-ws="wss://mc.arch.lol/">
+            <div class="server-icon">⚔️</div>
+            <div class="server-details">
+              <h4>ArchMC Network</h4>
+              <p>Practice • Duels • Bedwars • Skywars</p>
+            </div>
+            <div class="server-ping"><span class="ping-green">●</span> Online</div>
+            <button class="btn-connect" data-ip="wss://mc.arch.lol/">CONNECT</button>
+          </div>
+
+          <div class="server-card" data-ws="wss://eagler.asspixel.net/">
+            <div class="server-icon">🏆</div>
+            <div class="server-details">
+              <h4>AssPixel Club</h4>
+              <p>Cracked Hypixel Clone • Bedwars • Skyblock</p>
+            </div>
+            <div class="server-ping"><span class="ping-green">●</span> Online</div>
+            <button class="btn-connect" data-ip="wss://eagler.asspixel.net/">CONNECT</button>
+          </div>
+
+          <div class="server-card custom-server-card">
+            <div class="server-icon">🌐</div>
+            <div class="server-details">
+              <h4>Custom Server / Local Proxy</h4>
+              <input type="text" id="custom-server-ip" placeholder="ws://localhost:8081 or wss://your-proxy.com">
+            </div>
+            <button id="btn-connect-custom" class="btn-connect">CONNECT</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- In-Game Container View (Rendered when game launches) -->
+    <div id="game-view" class="game-view hidden">
+      <div class="game-toolbar">
+        <div class="game-status">
+          <span class="status-indicator"></span>
+          <span id="game-player-display">Player</span> | CM Client 1.8.8
+        </div>
+        <div class="game-controls">
+          <button id="btn-game-settings" class="btn-small">CM Settings</button>
+          <button id="btn-fullscreen" class="btn-small">Fullscreen</button>
+          <button id="btn-exit-game" class="btn-small btn-danger">Quit to Menu</button>
+        </div>
+      </div>
+      <div id="game-canvas-container" class="game-canvas-container">
+        <!-- Overlay CM Client PvP HUD Elements -->
+        <div id="cm-hud-overlay" class="cm-hud-overlay">
+          <!-- Keystrokes -->
+          <div id="hud-keystrokes" class="hud-box keystrokes-box">
+            <div class="key-row"><div class="key" id="key-w">W</div></div>
+            <div class="key-row">
+              <div class="key" id="key-a">A</div>
+              <div class="key" id="key-s">S</div>
+              <div class="key" id="key-d">D</div>
+            </div>
+            <div class="key-row">
+              <div class="key key-wide" id="key-lmb">LMB <span id="cps-lmb">0</span></div>
+              <div class="key key-wide" id="key-rmb">RMB <span id="cps-rmb">0</span></div>
+            </div>
+            <div class="key-row"><div class="key key-space" id="key-space">—— SPACE ——</div></div>
+          </div>
+
+          <!-- CPS Counter -->
+          <div id="hud-cps" class="hud-box cps-box">
+            <span class="hud-label">CPS:</span> <span id="hud-cps-val">0</span>
+          </div>
+
+          <!-- FPS Counter -->
+          <div id="hud-fps" class="hud-box fps-box">
+            <span class="hud-label">FPS:</span> <span id="hud-fps-val">60</span>
+          </div>
+
+          <!-- ToggleSprint Status -->
+          <div id="hud-sprint" class="hud-box sprint-box">
+            [Sprinting (Key Toggle)]
+          </div>
+
+          <!-- Armor Status -->
+          <div id="hud-armor" class="hud-box armor-box">
+            <div class="armor-slot">🪖 100%</div>
+            <div class="armor-slot">👕 100%</div>
+            <div class="armor-slot">👖 100%</div>
+            <div class="armor-slot">🥾 100%</div>
+            <div class="armor-slot">🗡️ 100%</div>
+          </div>
+        </div>
+
+        <!-- The Browser Game Frame / Canvas -->
+        <iframe id="game-frame" src="about:blank" allow="autoplay; fullscreen; pointer-lock; keyboard-map *" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- CM Client Settings Modal -->
+    <div id="modal-settings" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>CM CLIENT CONFIGURATION & TWEAKS</h2>
+          <button class="btn-close-modal" data-target="modal-settings">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="settings-tabs">
+            <button class="tab-btn active" data-tab="tab-mods">PvP Mods</button>
+            <button class="tab-btn" data-tab="tab-graphics">Video & FOV</button>
+            <button class="tab-btn" data-tab="tab-audio">Audio & Controls</button>
+          </div>
+
+          <div class="tab-content" id="tab-mods">
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>Keystrokes HUD</h4>
+                <p>Displays real-time WASD and mouse click counters</p>
+              </div>
+              <input type="checkbox" id="set-keystrokes" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>CPS Counter</h4>
+                <p>Shows clicks-per-second on your screen</p>
+              </div>
+              <input type="checkbox" id="set-cps" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>ToggleSprint / ToggleSneak</h4>
+                <p>Hold sprint automatically without double-tapping W</p>
+              </div>
+              <input type="checkbox" id="set-sprint" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>Armor Status HUD</h4>
+                <p>Shows equipped armor durability percentages</p>
+              </div>
+              <input type="checkbox" id="set-armor" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>Fullbright (Night Vision)</h4>
+                <p>Max gamma illumination in dark caves and night</p>
+              </div>
+              <input type="checkbox" id="set-fullbright" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>1.7 Sword Block Animation</h4>
+                <p>Emulates old 1.7 hit-and-block animation</p>
+              </div>
+              <input type="checkbox" id="set-blockhit" class="switch" checked>
+            </div>
+          </div>
+
+          <div class="tab-content hidden" id="tab-graphics">
+            <div class="setting-slider-row">
+              <div class="slider-header">
+                <span>Field of View (FOV)</span>
+                <span id="fov-display-val">90 (Speed Pro)</span>
+              </div>
+              <input type="range" id="set-fov" min="30" max="110" value="90">
+            </div>
+
+            <div class="setting-slider-row">
+              <div class="slider-header">
+                <span>Render Distance (Chunks)</span>
+                <span id="render-display-val">8 Chunks</span>
+              </div>
+              <input type="range" id="set-render-distance" min="2" max="16" value="8">
+            </div>
+
+            <div class="setting-slider-row">
+              <div class="slider-header">
+                <span>Max Framerate (FPS)</span>
+                <span id="fps-display-val">Unlimited</span>
+              </div>
+              <input type="range" id="set-max-fps" min="30" max="240" step="10" value="240">
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>Dynamic FOV</h4>
+                <p>Alter FOV while sprinting and using speed potions</p>
+              </div>
+              <input type="checkbox" id="set-dynamic-fov" class="switch" checked>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-info">
+                <h4>Fast Math & Fast Render</h4>
+                <p>OptiFine trigonometric table optimizations</p>
+              </div>
+              <input type="checkbox" id="set-fast-render" class="switch" checked>
+            </div>
+          </div>
+
+          <div class="tab-content hidden" id="tab-audio">
+            <div class="setting-slider-row">
+              <div class="slider-header">
+                <span>Master Volume</span>
+                <span id="vol-display-val">100%</span>
+              </div>
+              <input type="range" id="set-volume" min="0" max="100" value="100">
+            </div>
+            <div class="setting-slider-row">
+              <div class="slider-header">
+                <span>Mouse Sensitivity</span>
+                <span id="sens-display-val">100% (1.0x)</span>
+              </div>
+              <input type="range" id="set-sens" min="20" max="200" value="100">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-save-settings" class="btn-primary">SAVE CHANGES</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resource Packs Modal -->
+    <div id="modal-packs" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>RESOURCE PACKS MANAGER</h2>
+          <button class="btn-close-modal" data-target="modal-packs">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="upload-area" id="drop-pack-zone">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p><strong>Click or drag & drop</strong> your 1.8 PvP Resource Pack (.zip)</p>
+            <input type="file" id="file-pack-input" accept=".zip" hidden>
+          </div>
+
+          <div class="pack-list">
+            <h4>Available Packs:</h4>
+            <div class="pack-item active" id="pack-dewiers" data-pack="Dewiers-20k-Resource-Pack-16x-1.8.9.zip">
+              <img src="packs/dewiers_pack.png" class="pack-img" alt="Dewiers Pack">
+              <div class="pack-meta">
+                <h5>Dewier's 20k Resource Pack 16x (1.8.9)</h5>
+                <p>Clean PvP short swords, custom sky, low particles, optimal FPS</p>
+              </div>
+              <span class="pack-status" id="status-dewiers">ACTIVE</span>
+            </div>
+            <div class="pack-item" id="pack-default" data-pack="default">
+              <div class="pack-icon">📦</div>
+              <div class="pack-meta">
+                <h5>CM Client PvP Default 1.8.8</h5>
+                <p>Clean swords, low fire, clear water, high-visibility crosshair</p>
+              </div>
+              <button class="btn-small btn-toggle-pack" data-pack-id="pack-default">ENABLE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
